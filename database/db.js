@@ -29,7 +29,7 @@ const select = (artist, title, callback) => {
     if (err) {
       console.log('error selecting data for artist: ', artist, ' and song ', title)
     } else {
-      callback(data)
+      callback(data);
     }
   })
 }
