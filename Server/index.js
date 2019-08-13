@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const select = require('../database/db.js').select;
 const request = require('request')
 
-app.use(express.static('client'));
+app.use(express.static('client/dist'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
