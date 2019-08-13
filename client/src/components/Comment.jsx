@@ -12,7 +12,6 @@ class Comment extends React.Component {
   }
 
   handleReply(e) {
-      console.log('reply clicked')
       this.setState({
         showReply: true
       })

@@ -28,17 +28,17 @@ for (let i = 0 ; i < 100; i++) {
 }
 
 //IF YOU WANT MORE COMMENTS UNCOMMENT BELOW HERE TO ADD 10,000 COMBINATIONS OF ARTIST AND SONG
-// for (let j = 0; j < 10000; j++) {
-//   let newRecord = {
-//     text: commentGenerator(),
-//     songArtist: (800 * Math.floor(Math.random() * 100)).toString(), //testing artist names 800-899
-//     songTitle: (900 * Math.floor(Math.random() * 100)).toString(), //testing song names 900-999
-//     songTime: generateTimestamp(),
-//     userName: userNames[Math.floor(Math.random() * userNames.length)],
-//     commentDate: generateDate(new Date(2018, 1, 1), new Date())
-//   }
-//   records.push(newRecord)
-// }
+for (let j = 0; j < 10000; j++) {
+  let newRecord = {
+    text: commentGenerator(),
+    songArtist: (800 + Math.floor(Math.random() * 100)).toString(), //testing artist names 800-899
+    songTitle: (900 + Math.floor(Math.random() * 100)).toString(), //testing song names 900-999
+    songTime: generateTimestamp(),
+    userName: userNames[Math.floor(Math.random() * userNames.length)],
+    commentDate: generateDate(new Date(2018, 1, 1), new Date())
+  }
+  records.push(newRecord)
+}
 
 
 

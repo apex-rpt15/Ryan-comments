@@ -7,19 +7,26 @@ class App extends React.Component {
   constructor() {
     super();
 
+    //can use window.location.pathname to determine current url
+    this.currentPath = decodeURI(window.location.pathname);
+    this.splitPath = this.currentPath.split('/')
+    console.log(this.currentPath)
+    console.log(this.splitPath)
     this.state = {
-      artist: null,
-      song: null,
+      artist: this.splitPath[1] || 'AmigoKing',
+      song: this.splitPath[2] || 'Little Bugs',
       comments: []
     }
+
+    
+    
   }
 
   componentDidMount() {
     let myApp = this;
     $.get({
-      url: 'comments/AmigoKing/Little%20Bugs',
+      url: '/comments/' + myApp.state.artist + '/' + myApp.state.song, 
       success: function(data){
-        console.log(data)
         myApp.setState({
           comments: data
         })

@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const select = require('../database/db.js').select;
 const request = require('request')
 
-app.use(express.static('client/dist'));
+//using /:artist/:song as middleware 
+app.use('/:artist/:song', express.static('client/dist'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -22,7 +24,7 @@ app.get('/comments/:artist/:song', function(req, res) {
     res.send(results)
   } else {
     select(req.params.artist, req.params.song, (data) => { 
-      request.get('http://localhost:3004/users', function(error, response, body) {
+      request.get('http://localhost:3004/users', (error, response, body) => {
         //To do later...handle list of users from Zack to get the user photos and follow
         data.forEach(item => {
           let comment = {

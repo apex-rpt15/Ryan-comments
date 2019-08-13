@@ -14,14 +14,14 @@ describe('Database tests', function() {
 
 describe('Server tests', function() {
 
-  it('should return status code 200 for a valid request (Artist: AmigoKing Song: Little Bug)', function(done) {
+  it('should return status code 200 for a valid request (Artist: AmigoKing Song: Little Bugs)', function(done) {
     request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
       expect(response.statusCode).to.equal(200);
       done();
     })  
   })
 
-  it('should return 100 comments for test song (Artist: AmigoKing Song: Little Bug)', function(done){
+  it('should return 100 comments for test song (Artist: AmigoKing Song: Little Bugs)', function(done){
     request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
       let parsedBody = JSON.parse(body);
       expect(parsedBody.length).to.equal(100);
