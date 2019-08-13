@@ -39,7 +39,6 @@ describe('Server tests', function() {
   it('should have the correct properties in the response objects', function(done) {
     request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
       let parsedBody = JSON.parse(body);
-      console.log(parsedBody[0])
       expect(parsedBody[0].text).to.exist;
       expect(parsedBody[0].songTime).to.exist;
       expect(parsedBody[0].commentDate).to.exist;
@@ -53,8 +52,12 @@ describe('Server tests', function() {
 })
 
 describe('Client tests', function() {
-  it('Client should do something', function(done) {
+  it('Client should have comment elements after a valid request', function(done) {
     //To do...
-    done();
+    request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
+      
+      done();
+    })
+    
   })
 })

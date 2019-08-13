@@ -22,8 +22,8 @@ app.get('/comments/:artist/:song', function(req, res) {
     res.send(results)
   } else {
     select(req.params.artist, req.params.song, (data) => { 
-      request.get('/users', function(error, response, body) {
-        //handle list of users from Zack to get the user photos and followers'
+      request.get('http://localhost:3004/users', function(error, response, body) {
+        //To do later...handle list of users from Zack to get the user photos and follow
         data.forEach(item => {
           let comment = {
             text: item.text,
