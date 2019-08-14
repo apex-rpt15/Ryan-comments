@@ -10,8 +10,7 @@ class App extends React.Component {
     //can use window.location.pathname to determine current url
     this.currentPath = decodeURI(window.location.pathname);
     this.splitPath = this.currentPath.split('/')
-    console.log(this.currentPath)
-    console.log(this.splitPath)
+
     this.state = {
       artist: this.splitPath[1] || 'AmigoKing',
       song: this.splitPath[2] || 'Little Bugs',

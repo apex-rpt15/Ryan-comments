@@ -1,12 +1,25 @@
 const $ = require('jquery')
 const expect = require('chai').expect
 const request = require('request')
+const select = require('../database/db.js').select
+
 
 
 describe('Database tests', function() {
 
-  it('Database Soundcloud should do something', function(done) {
-    //to do...
+  it('Database should have at least 100 records for (Artist: AmigoKing Song: Little Bugs)', function(done) {
+    select('AmigoKing', 'Little Bugs', (data) => {
+      expect(data.length).to.satisfy((num) => {
+        return num >= 100;
+      })
+      done();
+    })
+  })
+
+  it('Should return results for a song that doesn\t exist (Artist: Ryan Song: Awesome', function(done) {
+    select('Ryan', 'Awesome', (data) => {
+      expect(data.length).to.equal(0)
+    })
     done();
   })
 })
@@ -52,7 +65,7 @@ describe('Server tests', function() {
 })
 
 describe('Client tests', function() {
-  it('Client should have comment elements after a valid request', function(done) {
+  it('To do...', function(done) {
     //To do...
     request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
       

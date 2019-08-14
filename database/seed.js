@@ -31,8 +31,8 @@ for (let i = 0 ; i < 100; i++) {
 for (let j = 0; j < 10000; j++) {
   let newRecord = {
     text: commentGenerator(),
-    songArtist: (800 + Math.floor(Math.random() * 100)).toString(), //testing artist names 800-899
-    songTitle: (900 + Math.floor(Math.random() * 100)).toString(), //testing song names 900-999
+    songArtist: userNames[Math.floor(Math.random() * userNames.length)], //song artists are also users
+    songTitle: (Math.floor(Math.random() * 100)).toString(), //testing song names 1-99
     songTime: generateTimestamp(),
     userName: userNames[Math.floor(Math.random() * userNames.length)],
     commentDate: generateDate(new Date(2018, 1, 1), new Date())

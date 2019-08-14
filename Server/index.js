@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const select = require('../database/db.js').select;
 const request = require('request')
 
-//using /:artist/:song as middleware 
+//using /:artist/:song as middleware to route everything to index.html
 app.use('/:artist/:song', express.static('client/dist'));
 
 app.use(bodyParser.json());
