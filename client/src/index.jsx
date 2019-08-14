@@ -35,10 +35,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.comments.map((item,index) => {
-            return (<Comment key={index} comment={item} />)
-        })}
+      
+      <div className='comment-list-full-box'>
+        <h3 className='comment-list-header'>
+          <span className='comment-list-header-icon'>placeholder for icon</span>
+          <span className='comment-list-header-title'>{this.state.comments.length} Comments</span>
+        </h3>
+        <ul>
+          {this.state.comments.map((item,index) => {
+              return (<li key={index} ><Comment comment={item} /></li>)
+          })}
+        </ul>
       </div>
     )
   }
