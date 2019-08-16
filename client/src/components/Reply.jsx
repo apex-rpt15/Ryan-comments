@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
 
 class Reply extends React.Component{
   constructor(props) {
@@ -13,7 +14,7 @@ class Reply extends React.Component{
 
   render() {
     return(
-      <div className='comment-reply-box'>
+      <div className={styles.commentReplyBox}>
         {'@' + this.props.user} <input placeholder='Write a reply'></input>
       </div>
     )

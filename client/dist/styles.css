@@ -4,8 +4,6 @@ body {
   color: #333;
 }
 
-
-
 ul {
   display: block;
   list-style-type: disc;
@@ -20,11 +18,11 @@ h3 {
   font-size: 14px;
 }
 
-.comment-reply-button {
+.commentReplyButton {
   align-self: stretch;
 }
 
-.comment-box {
+.commentBox {
   display: flex;
   position: relative;
   padding-top: 10px;
@@ -33,19 +31,19 @@ h3 {
   padding-left: 0px;
 }
 
-.comment-avatar-box {
+.commentAvatarBox {
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
   margin-right: 10px;
 }
 
-.comment-avatar-image {
+.commentAvatarImage {
   border-radius: 50%;
   height: 40px;
   width: 40px;
 }
 
-.comment-reply-box {
+.commentReplyBox {
   float: left;
 }
