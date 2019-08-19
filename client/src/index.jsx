@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import Comment from './components/Comment.jsx'
+import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +18,12 @@ class App extends React.Component {
       comments: []
     }
 
+    this.onReply = this.onReply.bind(this);
     
+    
+  }
+
+  onReply(e) {
     
   }
 
@@ -36,10 +42,10 @@ class App extends React.Component {
   render() {
     return (
       
-      <div className='comment-list-full-box'>
+      <div className={styles.commentListFullBox}>
         <h3 className='comment-list-header'>
           <span className='comment-list-header-icon'>placeholder for icon</span>
-          <span className='comment-list-header-title'>{this.state.comments.length} Comments</span>
+          <span className='comment-list-header-title'> {this.state.comments.length} Comments</span>
         </h3>
         <ul>
           {this.state.comments.map((item,index) => {
