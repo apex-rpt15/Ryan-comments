@@ -13,23 +13,24 @@ class CommentContent extends React.Component {
     <span>
       <a className={`${styles.grey}`}
         data-tip={`Visit ${this.props.comment.userName}'s Profile`}
-        data-delay-show='1000'
-        data-delay-hide='500'
         data-class={`${styles.tooltip}`}
-        data-place="bottom"
-        data-offset="{'right': 30}">{this.props.comment.userName}</a> 
+        delay-show='750' 
+        delay-hide='250' 
+        place='bottom' 
+        offset="{'right': 30}">{this.props.comment.userName}</a> 
       <span> 
         <a className={`${styles.smallText}`}> at </a> 
         <span className={`${styles.grey}`}
           data-tip={`Play from ${this.props.comment.songTime}`}
-          data-delay-show='1000'
-          data-delay-hide='500'
           data-class={`${styles.tooltip}`}
-          data-place="bottom"
-          data-offset="{'right': 50}">{this.props.comment.songTime}:</span>
+          delay-show='750' 
+          delay-hide='250' 
+          place='bottom' 
+          offset="{'right': 30}">{this.props.comment.songTime}:
+        </span>
       </span>
     </span>
-    <ReactTooltip />
+    <ReactTooltip delay-show='750' delay-hide='250' place='bottom' offset="{'right': 30}"/>
     <div className={styles.CommentBoxMaintext}>
       <span>
         <p>{this.props.comment.text}</p>

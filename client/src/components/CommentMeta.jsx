@@ -8,10 +8,6 @@ class CommentMeta extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {
-      showDateTooltip: false
-    }
-
     }
 
   //format date as DD Month YYYY for hover tooltip
@@ -27,12 +23,12 @@ class CommentMeta extends React.Component {
 
   render() {
     return (
-      <div>
       <div className={styles.commentMeta}>
+      <div >
         <span className={`${styles.grey} ${styles.smallText} ${styles.dateTooltip}`} 
           data-tip={`Posted on ${this.formatDate(this.props.comment.commentDate)}`}
-          data-delay-show='1000'
-          data-delay-hide='200'
+          data-delay-show='750'
+          data-delay-hide='250'
           data-class={`${styles.tooltip}`}
           data-place='bottom'
           data-offset="{'right': 30}">{moment(this.props.comment.commentDate).fromNow()}</span>

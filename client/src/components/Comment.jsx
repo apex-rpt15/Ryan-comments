@@ -44,14 +44,15 @@ class Comment extends React.Component {
 
   render() {
     return(
-      <div className={styles.commentBox}
-            onMouseEnter={this.replyMouseEnter}
-            onMouseLeave={this.replyMouseLeave}>
-        <CommentAvatar comment={this.props.comment}/>
-        <CommentContent comment={this.props.comment}/>
-        <CommentMeta comment={this.props.comment} showReplyHover={this.state.showReplyHover} handleReply={this.handleReply}/>
+      <div>
+        <div className={styles.commentBox}
+              onMouseEnter={this.replyMouseEnter}
+              onMouseLeave={this.replyMouseLeave}>
+          <CommentAvatar comment={this.props.comment}/>
+          <CommentContent comment={this.props.comment}/>
+          <CommentMeta comment={this.props.comment} showReplyHover={this.state.showReplyHover} handleReply={this.handleReply}/>
 
-      
+        </div>
       {this.state.showReply &&
         <Reply user={this.props.comment.userName} />  
       }

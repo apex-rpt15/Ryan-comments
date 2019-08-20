@@ -18,14 +18,10 @@ class App extends React.Component {
       comments: []
     }
 
-    this.onReply = this.onReply.bind(this);
-    
-    
+    this.messageIconUrl = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Screen+Shot+2019-08-19+at+10.18.47+PM.png'
+
   }
 
-  onReply(e) {
-    
-  }
 
   componentDidMount() {
     let myApp = this;
@@ -43,9 +39,11 @@ class App extends React.Component {
     return (
       
       <div className={styles.commentListFullBox}>
-        <h3 className='comment-list-header'>
-          <span className='comment-list-header-icon'>placeholder for icon</span>
-          <span className='comment-list-header-title'> {this.state.comments.length} Comments</span>
+        <h3 className={styles.commentListHeader}>
+          <span >
+            <img className={styles.commentListHeaderIcon} src={this.messageIconUrl}></img>
+          </span>
+          <span className={styles.commentListHeaderTitle}> {this.state.comments.length} Comments</span>
         </h3>
         <ul>
           {this.state.comments.map((item,index) => {
