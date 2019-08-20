@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import $ from 'jquery'
+import InfiniteScroll from 'react-infinite-scroller';
 import Comment from './components/Comment.jsx'
 import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
 
@@ -15,10 +16,18 @@ class App extends React.Component {
     this.state = {
       artist: this.splitPath[1] || 'AmigoKing',
       song: this.splitPath[2] || 'Little Bugs',
-      comments: []
+      comments: [],
+      hasMoreComments: true,
+      nextRef: null
     }
 
+    this.loadMore = this.loadMore.bind(this)
+
     this.messageIconUrl = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Screen+Shot+2019-08-19+at+10.18.47+PM.png'
+
+  }
+
+  loadMore(page) {
 
   }
 
@@ -45,11 +54,17 @@ class App extends React.Component {
           </span>
           <span className={styles.commentListHeaderTitle}> {this.state.comments.length} Comments</span>
         </h3>
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.loadMore}
+          hasMore={this.state.hasMoreComments}
+          loader={<div className="loader" key={0}>Loading ...</div>}>
         <ul>
           {this.state.comments.map((item,index) => {
               return (<li key={index} ><Comment comment={item} /></li>)
           })}
         </ul>
+        </InfiniteScroll>
       </div>
     )
   }

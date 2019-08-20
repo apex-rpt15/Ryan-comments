@@ -63,14 +63,3 @@ describe('Server tests', function() {
   })
 
 })
-
-describe('Client tests', function() {
-  it('To do...', function(done) {
-    //To do...
-    request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
-      
-      done();
-    })
-    
-  })
-})
