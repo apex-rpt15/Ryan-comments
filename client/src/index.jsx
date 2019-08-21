@@ -18,13 +18,24 @@ class App extends React.Component {
       song: this.splitPath[2] || 'Little Bugs',
       comments: [],
       hasMoreComments: true,
-      nextRef: null
+      nextRef: null,
+      x: 0,
+      y: 0
+
     }
 
+    this.mouseMove = this.mouseMove.bind(this)
     this.loadMore = this.loadMore.bind(this)
 
     this.messageIconUrl = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Screen+Shot+2019-08-19+at+10.18.47+PM.png'
 
+  }
+
+  mouseMove(e) {
+    this.setState({
+      x: e.screenX,
+      y: e.screenY  
+    })
   }
 
   loadMore(page) {
@@ -47,24 +58,24 @@ class App extends React.Component {
   render() {
     return (
       
-      <div className={styles.commentListFullBox}>
+      <div className={styles.commentListFullBox} onMouseMove={this.mouseMove}>
         <h3 className={styles.commentListHeader}>
           <span >
             <img className={styles.commentListHeaderIcon} src={this.messageIconUrl}></img>
           </span>
           <span className={styles.commentListHeaderTitle}> {this.state.comments.length} Comments</span>
         </h3>
-        <InfiniteScroll
+        {/* <InfiniteScroll
           pageStart={0}
           loadMore={this.loadMore}
           hasMore={this.state.hasMoreComments}
-          loader={<div className="loader" key={0}>Loading ...</div>}>
+          loader={<div className="loader" key={0}>Loading ...</div>}> */}
         <ul>
           {this.state.comments.map((item,index) => {
-              return (<li key={index} ><Comment comment={item} /></li>)
+              return (<li key={index} ><Comment comment={item} x={this.state.x} y={this.state.y}/></li>)
           })}
         </ul>
-        </InfiniteScroll>
+        {/* </InfiniteScroll> */}
       </div>
     )
   }

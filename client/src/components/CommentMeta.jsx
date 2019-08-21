@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css';
-import ReactTooltip from 'react-tooltip';
+import SimpleTooltip from './SimpleTooltip.jsx'
 import moment from 'moment';
 
 
@@ -8,7 +8,25 @@ class CommentMeta extends React.Component {
   constructor(props) {
     super(props)
 
+      this.state = {
+        showTooltip: false
+      }
+
+      this.mouseEnter = this.mouseEnter.bind(this)
+      this.mouseLeave = this.mouseLeave.bind(this)
     }
+
+  mouseEnter() {
+    this.setState({
+      showTooltip: true
+    })
+  }
+
+  mouseLeave() {
+    this.setState({
+      showTooltip: false
+    })
+  }
 
   //format date as DD Month YYYY for hover tooltip
   formatDate(date) {
@@ -25,17 +43,16 @@ class CommentMeta extends React.Component {
     return (
       <div className={styles.commentMeta}>
       <div >
-        <span className={`${styles.grey} ${styles.smallText} ${styles.dateTooltip}`} 
-          data-tip={`Posted on ${this.formatDate(this.props.comment.commentDate)}`}
-          data-delay-show='750'
-          data-delay-hide='250'
-          data-class={`${styles.tooltip}`}
-          data-place='bottom'
-          data-offset="{'right': 30}">{moment(this.props.comment.commentDate).fromNow()}</span>
-        <ReactTooltip />
-
+        <span className={`${styles.grey} ${styles.smallText} ${styles.dateTooltip}`}
+              onMouseEnter={this.mouseEnter}
+              onMouseLeave={this.mouseLeave}>{moment(this.props.comment.commentDate).fromNow()}</span>
+        
+        {this.state.showTooltip &&
+        <SimpleTooltip message={`Posted on ${this.formatDate(this.props.comment.commentDate)}`}/>}
+        
         {this.props.showReplyHover &&
         <div>
+         
           <button className={styles.commentReplyButton}
           onClick={this.props.handleReply}>Reply
           </button>

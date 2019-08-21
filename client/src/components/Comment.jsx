@@ -48,9 +48,20 @@ class Comment extends React.Component {
         <div className={styles.commentBox}
               onMouseEnter={this.replyMouseEnter}
               onMouseLeave={this.replyMouseLeave}>
-          <CommentAvatar comment={this.props.comment}/>
-          <CommentContent comment={this.props.comment}/>
-          <CommentMeta comment={this.props.comment} showReplyHover={this.state.showReplyHover} handleReply={this.handleReply}/>
+          <CommentAvatar comment={this.props.comment} 
+                         showReplyHover={this.state.showReplyHover}
+                         handleReply={this.handleReply}
+                          />
+          <CommentContent comment={this.props.comment}
+                          showReplyHover={this.state.showReplyHover}
+                          handleReply={this.handleReply}
+                          x={this.props.x}
+                          y={this.props.y}/>
+          <CommentMeta comment={this.props.comment} 
+                       showReplyHover={this.state.showReplyHover} 
+                       handleReply={this.handleReply}
+                       x={this.props.x}
+                       y={this.props.y}/>
 
         </div>
       {this.state.showReply &&
