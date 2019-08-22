@@ -4,7 +4,8 @@ import CommentAvatar from './CommentAvatar.jsx'
 import CommentContent from './CommentContent.jsx'
 import CommentMeta from './CommentMeta.jsx'
 
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
+import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
+
 
 class Comment extends React.Component { 
   constructor(props) {
@@ -13,12 +14,14 @@ class Comment extends React.Component {
 
     this.state = {
       showReply: false,
-      showReplyHover: false
+      showReplyHover: false,
+
     }
     
     this.handleReply = this.handleReply.bind(this)
     this.replyMouseEnter = this.replyMouseEnter.bind(this)
     this.replyMouseLeave = this.replyMouseLeave.bind(this)
+
 
   }
 
@@ -42,16 +45,21 @@ class Comment extends React.Component {
 
 
 
+
+
   render() {
     return(
       <div>
         <div className={styles.commentBox}
               onMouseEnter={this.replyMouseEnter}
               onMouseLeave={this.replyMouseLeave}>
-          <CommentAvatar comment={this.props.comment} 
+          <CommentAvatar comment={this.props.comment}
+                         x={this.props.x} 
+                         y={this.props.y}
                          showReplyHover={this.state.showReplyHover}
                          handleReply={this.handleReply}
-                          />
+                         onMouseEnter={this.avatarMouseEnter}
+                         onMouseLeave={this.avatarMouseLeave} />
           <CommentContent comment={this.props.comment}
                           showReplyHover={this.state.showReplyHover}
                           handleReply={this.handleReply}
@@ -64,6 +72,8 @@ class Comment extends React.Component {
                        y={this.props.y}/>
 
         </div>
+
+
       {this.state.showReply &&
         <Reply user={this.props.comment.userName} />  
       }

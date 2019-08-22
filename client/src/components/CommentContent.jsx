@@ -1,7 +1,8 @@
 import React from 'react'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
+import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
 import BigUserTooltip from './BigUserTooltip.jsx'
 import SimpleTooltip from './SimpleTooltip.jsx';
+import { thisExpression } from '@babel/types';
 
 
 class CommentContent extends React.Component {
@@ -59,26 +60,26 @@ class CommentContent extends React.Component {
       </span>
     </div>
 
-
-
-
-    {/* to do... fancy user tooltip */}
-
     <div className={styles.CommentBoxMaintext}>
       <span>
-      {this.state.showTimeTooltip &&
-      <SimpleTooltip message={`Play from ${this.props.comment.songTime}`} /> }
-    
-      {this.state.showSimpleUserTooltip && 
-      <SimpleTooltip message={`Visit ${this.props.comment.userName}'s Profile`} /> }
+        <div>
+          {this.state.showBigUserTooltip && 
+          <BigUserTooltip image={this.props.comment.userPhoto}
+                          style={{top: 30, left: 30}}
+                          user={`${this.props.comment.userName}`}
+                          followers={`${this.props.comment.userFollowers}`} 
+                          onMouseEnter={this.mouseEnterUser}
+                          onMouseLeave={this.mouseLeaveUser} /> }
+        </div>
+        {this.state.showTimeTooltip &&
+        <SimpleTooltip message={`Play from ${this.props.comment.songTime}`} 
+                       style={{top: 30, left: 120 }}/> }
       
-      {this.state.showBigUserTooltip && 
-      <BigUserTooltip image={this.props.comment.userPhoto} 
-                      user={`${this.props.comment.userName}`}
-                      followers={`${this.props.comment.userFollowers}`} /> }
+        {this.state.showSimpleUserTooltip && 
+        <SimpleTooltip message={`Visit ${this.props.comment.userName}'s Profile`} 
+                       style={{top: 30, left: 60 }}/> }
 
         <p>{this.props.comment.text}</p>
-
       </span>
     </div>
   </div>)

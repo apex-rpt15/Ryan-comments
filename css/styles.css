@@ -102,6 +102,7 @@ h3 {
   padding-right: 10px;
   padding-bottom: 10px;
   margin-left: 20px;
+  /* z-index: -1; */
 }
 
 .replyForm {
@@ -145,11 +146,15 @@ h3 {
 .replyInput {
   display: inline-block;
   height: 20px;
-  width: 100%;
+  /* width: 100%; */
   padding-right: 9px;
   border-top: 1px;
   border-right: 1px;
   border-bottom: 1px;
+}
+
+.replyInput:focus {
+  outline: none;
 }
 
 .followerImage {
@@ -162,23 +167,35 @@ h3 {
   box-sizing: border-box;
   position: absolute;
   left: 20px;
-  top: 50px;
+  /* margin-top: 10px; */
   background-color: #ffffff;
+  border: 1px solid;
   border-color: #999;
-  z-index: 1;
+  border-radius: 5px;
+  box-shadow: #999 0 0 0 1px;
+  z-index: 10;
   width: 150px;
+  min-height: 199px;
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   text-align: center;
   display: inline-block;
+}
+
+.tooltipAvatar {
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  padding: 15px
 }
 
 .simpleTooltip {
   font-size: 11px;
   color: white;
   background-color: #999;
+  z-index: 20;
   padding: 2px;
-  /* left: 60px; */
   position: absolute;
+  white-space: nowrap;
 }
 
 

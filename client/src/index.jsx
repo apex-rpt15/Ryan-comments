@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import InfiniteScroll from 'react-infinite-scroller';
 import Comment from './components/Comment.jsx'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
+import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
 
 class App extends React.Component {
   constructor() {
@@ -17,8 +17,8 @@ class App extends React.Component {
       artist: this.splitPath[1] || 'AmigoKing',
       song: this.splitPath[2] || 'Little Bugs',
       comments: [],
-      hasMoreComments: true,
-      nextRef: null,
+      // hasMoreComments: true,
+      // nextRef: null,
       x: 0,
       y: 0
 

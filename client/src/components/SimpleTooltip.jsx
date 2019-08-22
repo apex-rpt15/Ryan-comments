@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/client/dist/styles.css'
+import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
 
 class SimpleTooltip extends React.Component {
   constructor(props) {
@@ -7,7 +7,11 @@ class SimpleTooltip extends React.Component {
   }
 
   render() {
-    return(<div className={styles.simpleTooltip}>
+    let style = {
+      top: this.props.style.top || 0,
+      left: this.props.style.left || 0
+    }
+    return(<div className={styles.simpleTooltip} style={style}>
       {this.props.message}
     </div>)
   }
