@@ -79,7 +79,9 @@ module.exports = {
   // ],
 
   // A map from regular expressions to module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+   moduleNameMapper: {
+    "\\.(css|less)$": "/Users/mille424/rpt15-FEC/Ryan-comments/__mocks__/styleMock.js"
+  },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
@@ -123,7 +125,7 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+   setupFiles: ['/Users/mille424/rpt15-FEC/Ryan-comments/enzyme.config.js'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],

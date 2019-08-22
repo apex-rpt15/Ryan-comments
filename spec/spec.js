@@ -16,7 +16,7 @@ describe('Database tests', function() {
     })
   })
 
-  it('Should return results for a song that doesn\t exist (Artist: Ryan Song: Awesome', function(done) {
+  it('Should return 0 results for a song that doesn\t exist (Artist: Ryan Song: Awesome', function(done) {
     select('Ryan', 'Awesome', (data) => {
       expect(data.length).to.equal(0)
     })

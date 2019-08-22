@@ -11,17 +11,14 @@ class Comment extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       showReply: false,
       showReplyHover: false,
-
     }
     
     this.handleReply = this.handleReply.bind(this)
     this.replyMouseEnter = this.replyMouseEnter.bind(this)
     this.replyMouseLeave = this.replyMouseLeave.bind(this)
-
 
   }
 
@@ -41,11 +38,6 @@ class Comment extends React.Component {
       showReplyHover: false
     })
   }
-
-
-
-
-
 
   render() {
     return(

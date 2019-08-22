@@ -4,7 +4,8 @@
   "description": "comments section for RPT15 FEC Project",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
+    "test:coverage": "jest --verbose --coverage",
     "server-start": "nodemon ./server/index.js",
     "react-dev": "webpack -d --watch",
     "seed-db": "node ./database/seed.js"
@@ -50,10 +51,13 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^24.9.0",
+    "jsdom": "^15.1.1",
     "mocha": "^2.4.5",
     "nodemon": "^1.19.1",
+    "react-test-renderer": "^16.9.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6"
-  }
+  },
+  "jest": {}
 }
