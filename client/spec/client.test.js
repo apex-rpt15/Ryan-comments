@@ -3,6 +3,7 @@
 // const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
 // console.log(dom.window.document.querySelector("p").textContent); // "Hello world"
 
+
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 import React from 'react'
@@ -31,6 +32,11 @@ const commentTestProps = {
     userFollowers: 100
   }
 }
+const testStyle = { 
+  top: 0,
+  left: 0
+}
+
 describe('<Comment />', () => {
   it('renders without crashing ', () => {
     const wrapper = shallow(<Comment />);
@@ -164,7 +170,7 @@ describe('<CommentMeta />', () => {
   })
 
   it('should change state on mouse events', () => {
-    const wrapper = mount(<CommentMeta comment={commentTestProps} />)
+    const wrapper = shallow(<CommentMeta comment={commentTestProps} />)
 
     const firstSpan = wrapper.find('span').first()
     firstSpan.simulate('mouseenter')
@@ -172,12 +178,63 @@ describe('<CommentMeta />', () => {
     firstSpan.simulate('mouseleave')
     expect(wrapper.state('showDateTooltip')).to.be.false
 
-    const firstButton = wrapper.find('button').first()
-    firstButton.simulate('mouseenter')
-    expect(wrapper.state('showReplyTooltip')).to.be.true
-    firstButton.simulate('mouseleave')
-    expect(wrapper.state('showReplyTooltip')).to.be.false
+    //need to use mount to test nested components
+    // const firstButton = wrapper.find('button').first()
+    // firstButton.simulate('mouseenter')
+    // expect(wrapper.state('showReplyTooltip')).to.be.true
+    // firstButton.simulate('mouseleave')
+    // expect(wrapper.state('showReplyTooltip')).to.be.false
   })
 })
 
+describe('<BigUserTooltip />', () => {
+  it('should render without crashing ', () => {
+    const wrapper = shallow(<BigUserTooltip style={testStyle}/>)
+  })
 
+  it('should have the correct initial state ', () => {
+    // this.state = {
+    //   showFollowersTooltip: false,
+    //   showFollowButtonTooltip: false
+    // }
+    const wrapper = shallow(<BigUserTooltip style={testStyle} />)
+    expect(wrapper.state('showFollowersTooltip')).to.be.false
+    expect(wrapper.state('showFollowButtonTooltip')).to.be.false
+  })
+
+  it('should not show tooltips initially', () => {
+    const wrapper = shallow(<BigUserTooltip style={testStyle} />)
+    expect(wrapper.find(SimpleTooltip).exists()).to.be.false
+  })
+
+  it('should render tooltips on state change', () => {
+    const wrapper = shallow(<BigUserTooltip style={testStyle} />)
+    wrapper.setState({
+      showFollowersTooltip: true,
+      showFollowButtonTooltip: false
+    })
+    expect(wrapper.find(SimpleTooltip).exists()).to.be.true
+    wrapper.setState({
+      showFollowersTooltip: false,
+      showFollowButtonTooltip: false
+    })
+    expect(wrapper.find(SimpleTooltip).exists()).to.be.false
+    wrapper.setState({
+      showFollowersTooltip: false,
+      showFollowButtonTooltip: true
+    })
+    expect(wrapper.find(SimpleTooltip).exists()).to.be.true
+  })
+})
+
+describe('<SimpleTooltip />', () => {
+  it('should render without crashing ', () => {
+    const wrapper = shallow(<SimpleTooltip style={testStyle} />)
+  })
+})
+
+describe('<Reply />', () => {
+  it('should render without crashing', () => {
+    const wrapper = shallow(<Reply />)
+  })
+})
