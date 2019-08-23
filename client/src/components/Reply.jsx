@@ -9,7 +9,7 @@ class Reply extends React.Component{
       showHover: false
     }
 
-    this.replyAvatar = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Screen+Shot+2019-08-19+at+10.20.22+PM.png'
+    this.replyAvatar = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Unknown+User+Reply+Icon'
   }
 
 
