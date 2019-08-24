@@ -16,7 +16,7 @@ describe('Database tests', function() {
     })
   })
 
-  it('Should return results for a song that doesn\t exist (Artist: Ryan Song: Awesome', function(done) {
+  it('Should return 0 results for a song that doesn\t exist (Artist: Ryan Song: Awesome', function(done) {
     select('Ryan', 'Awesome', (data) => {
       expect(data.length).to.equal(0)
     })
@@ -62,15 +62,4 @@ describe('Server tests', function() {
     })  
   })
 
-})
-
-describe('Client tests', function() {
-  it('To do...', function(done) {
-    //To do...
-    request.get('http://localhost:3002/comments/AmigoKing/Little%20Bugs', function(error, response, body){
-      
-      done();
-    })
-    
-  })
 })
