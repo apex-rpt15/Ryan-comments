@@ -12,7 +12,7 @@ class CommentAvatar extends React.Component {
     this.avatarMouseLeave = this.avatarMouseLeave.bind(this)
     
     //test image for avatars
-    this.testimage = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+    //this.testimage = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
   }
 
   avatarMouseEnter() {
@@ -29,7 +29,7 @@ class CommentAvatar extends React.Component {
 
   render() {
     return (<div className={styles.CommentAvatar} onMouseEnter={this.avatarMouseEnter} onMouseLeave={this.avatarMouseLeave}>
-      <img src={this.testimage} className={styles.commentAvatarImage}></img>
+      <img src={this.props.comment.userPhoto} className={styles.commentAvatarImage}></img>
       <div>
         {this.state.showBigUserTooltip &&
         <BigUserTooltip image={this.props.comment.userPhoto} 

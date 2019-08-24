@@ -7,6 +7,7 @@ const request = require('request')
 
 //using /:artist/:song as middleware to route everything to index.html
 app.use('/:artist/:song', express.static('client/dist'));
+app.use('/', express.static('client/dist'))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -25,20 +26,33 @@ app.get('/comments/:artist/:song', function(req, res) {
   } else {
     select(req.params.artist, req.params.song, (data) => { 
       request.get('http://localhost:3004/users', (error, response, body) => {
-        //To do later...handle list of users from Zack to get the user photos and follow
         data.forEach(item => {
+          //stub followers and photo if they aren't matched to Zack's data
+          let parsedBody = JSON.parse(body)
+          let actualFollowers = 0
+          let actualPhoto = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+          parsedBody.forEach(user => {
+            if(user.username === item.userName) {
+              actualPhoto = user.photo
+              actualFollowers = user.followers
+            }
+          })
           let comment = {
             text: item.text,
             songTime: item.songTime,
             commentDate: item.commentDate,
             userName: item.userName,
-            userPhoto: 'someurl.com', //stub until zack's endpoint is available
-            userFollowers: Math.floor(Math.random()) * 1000 //stub until zack's endpoint is available 
-          }
+            userPhoto: actualPhoto, //stub until zack's endpoint is available
+            userFollowers: actualFollowers //stub until zack's endpoint is available 
+          } 
           results.push(comment)  
-        })    
+        })  
         res.send(results)
       })
     })
   }
+})
+
+app.all('/*', (req, res) => {
+  request.get('http://localhost:3002')
 })

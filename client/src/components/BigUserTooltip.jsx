@@ -18,7 +18,7 @@ class BigUserTooltip extends React.Component {
     this.leaveFollowButton = this.leaveFollowButton.bind(this)
 
     this.followerimage = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Follower+Icon'
-    this.testimage = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+    //this.testimage = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
   }
 
   enterFollowers() {
@@ -52,7 +52,7 @@ class BigUserTooltip extends React.Component {
     }
     return(
       <div className={styles.userTooltip} style={style}>
-        <img src={this.testimage} className={styles.tooltipAvatar}></img>
+        <img src={this.props.image} className={styles.tooltipAvatar}></img>
         <div>{this.props.user}</div>
         <span onMouseEnter={this.enterFollowers} onMouseLeave={this.leaveFollowers}>
 
