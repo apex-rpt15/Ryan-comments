@@ -46,7 +46,7 @@ class App extends React.Component {
   componentDidMount() {
     let myApp = this;
     $.get({
-      url: '/comments/' + myApp.state.artist + '/' + myApp.state.song, 
+      url: 'http://localhost:3002/comments/' + myApp.state.artist + '/' + myApp.state.song, 
       success: function(data){
         myApp.setState({
           comments: data
@@ -71,6 +71,7 @@ class App extends React.Component {
           hasMore={this.state.hasMoreComments}
           loader={<div className="loader" key={0}>Loading ...</div>}> */}
         <ul>
+          
           {this.state.comments.map((item,index) => {
               return (<li key={index} ><Comment comment={item} x={this.state.x} y={this.state.y}/></li>)
           })}

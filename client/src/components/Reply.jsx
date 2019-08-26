@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
+import styles from '../../../css/styles.css'
 
 class Reply extends React.Component{
   constructor(props) {

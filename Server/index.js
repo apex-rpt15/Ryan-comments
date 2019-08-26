@@ -5,6 +5,12 @@ const bodyParser = require('body-parser');
 const select = require('../database/db.js').select;
 const request = require('request')
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+ });
+
 //using /:artist/:song as middleware to route everything to index.html
 app.use('/:artist/:song', express.static('client/dist'));
 app.use('/', express.static('client/dist'))
@@ -12,15 +18,10 @@ app.use('/', express.static('client/dist'))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port = 3002;
-app.listen(port, () => {
-  console.log('listening on port ', port);
-});
-
 app.get('/comments/:artist/:song', function(req, res) {
   console.log(`GET request for artist ${req.params.artist} and song ${req.params.song}`)
   let results = []
-  if(!(req.params.artist || req.params.song)) {
+  if((!req.params.artist || !req.params.song)) {
     console.log('artist or song not specified')
     res.send(results)
   } else {
@@ -53,6 +54,7 @@ app.get('/comments/:artist/:song', function(req, res) {
   }
 })
 
-app.all('/*', (req, res) => {
-  request.get('http://localhost:3002')
-})
+const port = 3002;
+app.listen(port, () => {
+  console.log('listening on port ', port);
+});
