@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
+import styles from '../../../css/styles.css'
 import BigUserTooltip from './BigUserTooltip.jsx'
 import SimpleTooltip from './SimpleTooltip.jsx';
 import { thisExpression } from '@babel/types';

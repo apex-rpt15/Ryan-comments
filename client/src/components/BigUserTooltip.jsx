@@ -1,6 +1,6 @@
 import React from 'react'
 import SimpleTooltip from './SimpleTooltip.jsx'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css';
+import styles from '../../../css/styles.css';
 
 class BigUserTooltip extends React.Component {
   constructor(props) {
