@@ -5,11 +5,11 @@ const bodyParser = require('body-parser');
 const select = require('../database/db.js').select;
 const request = require('request')
 
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   next();
-//  });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+ });
 
 //using /:artist/:song as middleware to route everything to index.html
 app.use('/:artist/:song', express.static('client/dist'));
