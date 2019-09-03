@@ -9,4 +9,6 @@ services:
       - '3002:3002'
       
   database:
-    image: mongo:latest    
+    image: mongo:latest
+    ports:
+      - '27017:27017'
