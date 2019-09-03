@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import $ from 'jquery'
 import InfiniteScroll from 'react-infinite-scroller';
 import Comment from './components/Comment.jsx'
-import styles from '/Users/mille424/rpt15-FEC/Ryan-comments/css/styles.css'
+import styles from '../../css/styles.css'
 
 class App extends React.Component {
   constructor() {

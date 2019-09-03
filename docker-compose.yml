@@ -7,6 +7,8 @@ services:
       - 'database'
     ports:
       - '3002:3002'
+    env_file:
+      - comments-variables.env
       
   database:
     image: mongo:latest

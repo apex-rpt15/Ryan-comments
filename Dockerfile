@@ -10,6 +10,6 @@ RUN yarn install
 
 RUN yarn global add nodemon
 
-EXPOSE 3004
+EXPOSE 3002
 
 CMD [ "npm", "run", "server-start"]
