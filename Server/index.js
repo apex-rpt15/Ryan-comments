@@ -47,7 +47,7 @@ app.get('/comments/:artist/:song', function(req, res) {
             userFollowers: actualFollowers //stub until zack's endpoint is available 
           } 
           results.push(comment)  
-        })  
+        }) 
         res.send(results)
       })
     })
