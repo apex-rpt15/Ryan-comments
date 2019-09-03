@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const mongoUri = 'mongodb://localhost/Soundcloud';
+const mongoUri = 'mongodb://database/Soundcloud';
 
 mongoose.connect(mongoUri, {useMongoClient: true});
 const db = mongoose.connection
