@@ -8,7 +8,8 @@
     "test:coverage": "jest --verbose --coverage",
     "server-start": "node ./Server/index.js",
     "react-dev": "webpack -d --watch",
-    "seed-db": "node ./database/seed.js"
+    "seed-db": "node ./database/seed.js",
+    "seed-start": "node ./database/seed.js && node ./Server/index.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,6 @@
     "morgan": "^1.9.1",
     "mysql": "^2.17.1",
     "nodemon": "^1.19.1",
-    "puppeteer": "^1.19.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-infinite-scroller": "^1.2.4",

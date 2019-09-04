@@ -1,15 +1,17 @@
 FROM node:latest
 
+ENV db_host database
+
 RUN mkdir -p /src/app
 
 WORKDIR /src/app
 
 COPY . /src/app
 
-RUN yarn install
+RUN npm install
 
-RUN yarn global add nodemon
+RUN npm install nodemon -g
 
 EXPOSE 3002
 
-CMD [ "npm", "run", "server-start"]
+CMD [ "npm", "run", "seed-start"]
