@@ -46,7 +46,7 @@ class App extends React.Component {
   componentDidMount() {
     let myApp = this;
     $.get({
-      url: '/comments/' + myApp.state.artist + '/' + myApp.state.song,
+      url: 'http://ec2-54-245-205-70.us-west-2.compute.amazonaws.com:3002' + '/comments/' + myApp.state.artist + '/' + myApp.state.song,
       success: function(data){
         myApp.setState({
           comments: data
