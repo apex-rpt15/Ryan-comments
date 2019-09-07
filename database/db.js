@@ -26,7 +26,7 @@ const select = (artist, title, callback) => {
   Comments.find({
     songArtist: artist,
     songTitle: title
-  }, (err, data) => {
+  }, null, {sort: {commentDate: -1}}, (err, data) => {
     if (err) {
       console.log('error selecting data for artist: ', artist, ' and song ', title)
     } else {

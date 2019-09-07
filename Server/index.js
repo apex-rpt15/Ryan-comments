@@ -27,7 +27,9 @@ app.get('/comments/:artist/:song', function(req, res) {
       res.send(results)
     } else {
       select(req.params.artist, req.params.song, (data) => {
-        request.get(`http://${process.env.USERS_URL}/users`, (error, response, body) => {
+        let usersUrl = process.env.USERS_URL || 'http://localhost:3004'
+        request.get(`${usersUrl}/users`, (error, response, body) => {
+          console.log(`request to endpoint ${usersUrl}/users`)
           data.forEach(item => {
             //stub followers and photo if they aren't matched to Zack's data
             let parsedBody

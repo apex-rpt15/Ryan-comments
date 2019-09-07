@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage",
-    "server-start": "node ./Server/index.js",
+    "server-start": "nodemon ./Server/index.js",
     "react-dev": "webpack -d --watch",
     "seed-db": "node ./database/seed.js",
     "seed-start": "node ./database/seed.js && node ./Server/index.js"
