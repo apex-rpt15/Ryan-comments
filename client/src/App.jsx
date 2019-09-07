@@ -17,8 +17,11 @@ class App extends React.Component {
       artist: this.splitPath[1] || 'AmigoKing',
       song: this.splitPath[2] || 'Little Bugs',
       comments: [],
-      // hasMoreComments: true,
-      // nextRef: null,
+      commentsRetrieved: true,
+      maxVisibleComments: 0,
+      visibleComments: [],
+      hasMoreComments: true,
+      nextRef: null,
       x: 0,
       y: 0
 
@@ -39,7 +42,20 @@ class App extends React.Component {
   }
 
   loadMore(page) {
-
+    if (this.state.commentsRetrieved) {
+      if (this.state.maxVisibleComments > this.state.comments.length) {
+        console.log(`at the end of comments`)
+        // this.setState({ hasMoreComments: false})
+      } else {
+        console.log('success, changing state to load more comments')
+        this.setState({
+          maxVisibleComments: this.state.maxVisibleComments + 5,
+          visibleComments: this.state.comments.slice(0, this.state.maxVisibleComments + 5)
+        })
+      }
+    } else {
+      console.log('comments not loaded yet')
+    }
   }
 
 
@@ -49,7 +65,8 @@ class App extends React.Component {
       url: 'http://ec2-54-245-205-70.us-west-2.compute.amazonaws.com:3002' + '/comments/' + myApp.state.artist + '/' + myApp.state.song,
       success: function(data){
         myApp.setState({
-          comments: data
+          comments: data,
+          commentsRetrieved: true
         })
       }
     })
@@ -65,18 +82,18 @@ class App extends React.Component {
           </span>
           <span className={styles.commentListHeaderTitle}> {this.state.comments.length} Comments</span>
         </h3>
-        {/* <InfiniteScroll
+        <InfiniteScroll
           pageStart={0}
           loadMore={this.loadMore}
           hasMore={this.state.hasMoreComments}
-          loader={<div className="loader" key={0}>Loading ...</div>}> */}
+          // loader={<div className="loader" key={0}>Loading ...</div>}
+          >
         <ul>
-          
-          {this.state.comments.map((item,index) => {
+          {this.state.visibleComments.map((item,index) => {
               return (<li key={index} ><Comment comment={item} x={this.state.x} y={this.state.y}/></li>)
           })}
         </ul>
-        {/* </InfiniteScroll> */}
+        </InfiniteScroll>
       </div>
     )
   }
