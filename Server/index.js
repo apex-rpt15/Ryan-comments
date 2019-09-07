@@ -1,10 +1,12 @@
 //server source
 const express = require('express');
+const compression = require('compression')
 const app = express();
 const bodyParser = require('body-parser');
 const select = require('../database/db.js').select;
 const request = require('request')
 
+app.use(compression())
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
