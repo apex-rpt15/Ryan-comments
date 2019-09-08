@@ -8,7 +8,7 @@ class Reply extends React.Component{
     this.state = {
       showHover: false
     }
-
+    this.inputPadding = 20 + props.user.length * 8
     this.replyAvatar = 'https://hackreactor-fec-project.s3-us-west-1.amazonaws.com/Unknown+User+Reply+Icon'
   }
 
@@ -25,7 +25,7 @@ class Reply extends React.Component{
             
             <div className={styles.replyInputWrapper}>
               <a className={styles.replyToUser}>@{this.props.user}</a>
-              <input className={styles.replyInput} placeholder='Write a reply' style={{paddingLeft: '100px'}}></input>
+              <input className={styles.replyInput} placeholder='Write a reply' style={{paddingLeft: this.inputPadding}}></input>
             </div>
             
           </div>

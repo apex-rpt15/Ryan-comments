@@ -40,11 +40,13 @@ app.get('/comments/:artist/:song', function(req, res) {
             }
             let actualFollowers = 0
             let actualPhoto = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
+            let actualLocation = ''
             if (parsedBody !== undefined) {            
               parsedBody.forEach(user => {
                 if(user.username === item.userName) {
                   actualPhoto = user.photo
                   actualFollowers = user.followers
+                  actualLocation = user.location
                 }
               })
             }
@@ -54,7 +56,8 @@ app.get('/comments/:artist/:song', function(req, res) {
               commentDate: item.commentDate,
               userName: item.userName,
               userPhoto: actualPhoto, //stub until zack's endpoint is available
-              userFollowers: actualFollowers //stub until zack's endpoint is available 
+              userFollowers: actualFollowers, //stub until zack's endpoint is available 
+              location: actualLocation 
             } 
             results.push(comment)  
           }) 
@@ -72,7 +75,8 @@ app.get('/comments/:artist/:song', function(req, res) {
       commentDate: new Date(),
       userName: 'Ryan',
       userPhoto: '',
-      userFollowers: '1'
+      userFollowers: '1',
+      location: 'nowhere'
     }])
   }
  

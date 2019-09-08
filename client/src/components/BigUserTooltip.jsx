@@ -59,6 +59,7 @@ class BigUserTooltip extends React.Component {
           <img src={this.followerimage} className={styles.followerImage}></img>
           <div className={`${styles.smallText} ${styles.grey}`}style={{display: 'inline-block'}}>{this.props.followers}</div>
         </span>
+        <div>{this.props.location}</div>
         <div>
         {this.state.showFollowersTooltip &&
           <div ><SimpleTooltip message={`${this.props.followers} followers`} style={{top: 150, left: 80 }}/></div>}

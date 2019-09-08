@@ -35,7 +35,8 @@ class CommentAvatar extends React.Component {
         <BigUserTooltip image={this.props.comment.userPhoto} 
                         style={{top: 50, left: 0}}
                         user={`${this.props.comment.userName}`}
-                        followers={`${this.props.comment.userFollowers}`} />}
+                        followers={`${this.props.comment.userFollowers}`}
+                        location={`${this.props.comment.location}`} />}
       </div>
       </div>)
   }
