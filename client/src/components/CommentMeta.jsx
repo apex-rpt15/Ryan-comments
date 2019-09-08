@@ -66,7 +66,7 @@ class CommentMeta extends React.Component {
         
         {this.state.showDateTooltip &&
           <SimpleTooltip message={`Posted on ${this.formatDate(this.props.comment.commentDate)}`}
-                         style={{top: '95%', left: '95%'}}/>}
+                         style={{top: '60%', left: '95%'}}/>}
 
         {this.props.showReplyHover &&
         <div>
@@ -77,7 +77,7 @@ class CommentMeta extends React.Component {
           </button>
 
           {this.state.showReplyTooltip &&
-            <SimpleTooltip message={'Reply'} style={{top:'95%', left: '95%' }}/>}
+            <SimpleTooltip message={'Reply'} style={{top:'80%', left: '95%' }}/>}
         </div>}
       </div>
       </div>

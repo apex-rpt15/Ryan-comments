@@ -1,6 +1,7 @@
 FROM node:latest
 
 ENV db_host database
+ENV USERS_URL comments
 
 RUN mkdir -p /src/app
 
