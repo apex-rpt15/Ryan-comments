@@ -21,7 +21,6 @@ class App extends React.Component {
       maxVisibleComments: 0,
       visibleComments: [],
       hasMoreComments: true,
-      nextRef: null,
       x: 0,
       y: 0
 
@@ -44,13 +43,17 @@ class App extends React.Component {
   loadMore(page) {
     if (this.state.commentsRetrieved) {
       if (this.state.maxVisibleComments > this.state.comments.length) {
-        console.log(`at the end of comments`)
-        // this.setState({ hasMoreComments: false})
+        if (this.state.comments.length > 0) {
+          console.log('at the end of comments')
+          this.setState({
+            hasMoreComments: false
+          })
+        }
       } else {
-        console.log('success, changing state to load more comments')
+        console.log('increasing comments limit')
         this.setState({
-          maxVisibleComments: this.state.maxVisibleComments + 5,
-          visibleComments: this.state.comments.slice(0, this.state.maxVisibleComments + 5)
+          maxVisibleComments: this.state.maxVisibleComments + 1,
+          visibleComments: this.state.comments.slice(0, this.state.maxVisibleComments + 1)
         })
       }
     } else {
@@ -86,7 +89,6 @@ class App extends React.Component {
           pageStart={0}
           loadMore={this.loadMore}
           hasMore={this.state.hasMoreComments}
-          // loader={<div className="loader" key={0}>Loading ...</div>}
           >
         <ul>
           {this.state.visibleComments.map((item,index) => {
