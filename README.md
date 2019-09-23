@@ -1,6 +1,6 @@
 # ryan-comments
 
-> Project description
+> Comment section of fakesoundcloud, a clone of the soundcloud song page
 
 ## Related Projects
 
@@ -17,7 +17,14 @@
 
 ## Usage
 
-> Some usage instructions
+> to start with docker: docker-compose up --build -d
+Note: this will also seed the database with the seed script
+
+> to seed the database: npm run seed-db
+> to start server locally: npm run server-start
+> to start babel/webpack: npm run react-dev
+
+>Note: There is currently a get request to the running ec2 instance in App.jsx.  This will need to get removed or changed for further development.
 
 ## Requirements
 
