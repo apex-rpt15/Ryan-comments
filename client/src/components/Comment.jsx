@@ -3,23 +3,18 @@ import Reply from './Reply.jsx'
 import CommentAvatar from './CommentAvatar.jsx'
 import CommentContent from './CommentContent.jsx'
 import CommentMeta from './CommentMeta.jsx'
-
 import styles from '../../../css/styles.css'
-
 
 class Comment extends React.Component { 
   constructor(props) {
     super(props);
-
     this.state = {
       showReply: false,
       showReplyHover: false,
     }
-    
     this.handleReply = this.handleReply.bind(this)
     this.replyMouseEnter = this.replyMouseEnter.bind(this)
     this.replyMouseLeave = this.replyMouseLeave.bind(this)
-
   }
 
   handleReply(e) {
@@ -27,6 +22,7 @@ class Comment extends React.Component {
         showReply: true
       })
   }
+
   replyMouseEnter(e) {
     this.setState({
       showReplyHover: true
@@ -62,18 +58,14 @@ class Comment extends React.Component {
                        handleReply={this.handleReply}
                        x={this.props.x}
                        y={this.props.y}/>
-
         </div>
-
 
       {this.state.showReply &&
         <Reply user={this.props.comment.userName} />  
       }
-      
     </div>
     )
   }
 }
-
 
 export default Comment

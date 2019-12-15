@@ -15,10 +15,6 @@ class SimpleTooltip extends React.Component {
       {this.props.message}
     </div>)
   }
-
 }
-
-
-
 
 export default SimpleTooltip

@@ -3,10 +3,7 @@ const expect = require('chai').expect
 const request = require('request')
 const select = require('../database/db.js').select
 
-
-
 describe('Database tests', function() {
-
   it('Database should have at least 100 records for (Artist: AmigoKing Song: Little Bugs)', function(done) {
     select('AmigoKing', 'Little Bugs', (data) => {
       expect(data.length).to.satisfy((num) => {
@@ -23,7 +20,6 @@ describe('Database tests', function() {
     done();
   })
 })
-
 
 describe('Server tests', function() {
 

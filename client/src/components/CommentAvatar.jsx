@@ -10,9 +10,6 @@ class CommentAvatar extends React.Component {
     }
     this.avatarMouseEnter = this.avatarMouseEnter.bind(this)
     this.avatarMouseLeave = this.avatarMouseLeave.bind(this)
-    
-    //test image for avatars
-    //this.testimage = 'https://images.unsplash.com/photo-1526137966266-60618b40bcd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80'
   }
 
   avatarMouseEnter() {

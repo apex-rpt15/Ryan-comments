@@ -73,6 +73,4 @@ class BigUserTooltip extends React.Component {
   }
 }
 
-
-
 export default BigUserTooltip

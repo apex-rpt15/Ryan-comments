@@ -12,13 +12,10 @@ class CommentMeta extends React.Component {
         showDateTooltip: false,
         showReplyTooltip: false
       }
-
       this.mouseEnterDate = this.mouseEnterDate.bind(this)
       this.mouseLeaveDate = this.mouseLeaveDate.bind(this)
-
       this.mouseEnterReply = this.mouseEnterReply.bind(this)
       this.mouseLeaveReply = this.mouseLeaveReply.bind(this)
-
     }
 
   mouseEnterDate() {

@@ -61,7 +61,6 @@ class App extends React.Component {
     }
   }
 
-
   componentDidMount() {
     let myApp = this;
     $.get({
@@ -77,7 +76,6 @@ class App extends React.Component {
 
   render() {
     return (
-      
       <div className={styles.commentListFullBox} onMouseMove={this.mouseMove}>
         <h3 className={styles.commentListHeader}>
           <span >

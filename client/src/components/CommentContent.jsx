@@ -8,7 +8,6 @@ import { thisExpression } from '@babel/types';
 class CommentContent extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       showTimeTooltip: false,
       showSimpleUserTooltip: false,
@@ -59,7 +58,6 @@ class CommentContent extends React.Component {
         </span>
       </span>
     </div>
-
     <div className={styles.CommentBoxMaintext}>
       <span>
         <div>
